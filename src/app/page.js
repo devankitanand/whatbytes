@@ -1,101 +1,179 @@
+"use client";
+import { useState } from 'react';
+import Header from "../components/Header.jsx";
+import MyChart from "../components/MyChart.js";
 import Image from "next/image";
+import "../components/Style.css";
+import { MdSpaceDashboard } from "react-icons/md";
+import { RiAwardFill } from "react-icons/ri";
+import { GrCopy } from "react-icons/gr";
+import MyPieChart from "../components/Mypiechart.jsx";
+// import MyDoughnutChart from "@/components/MyDoughnutChart";
+import UpdatePopup from "@/components/UpdatePopup";
 
-export default function Home() {
+const Home = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [stats, setStats] = useState({
+    rank: 1,
+    percentile: 90,
+    score: '12 / 15'
+  });
+
+  const handleUpdate = (newStats) => {
+    setStats({
+      rank: newStats.rank || stats.rank,
+      percentile: newStats.percentile || stats.percentile,
+      score: newStats.score ? `${newStats.score} / 15` : stats.score
+    });
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div>
+      <Header />
+      <div className="bodywrap">
+        <div className="sidebar">
+          <div className="mt-12">
+            <div className="flex items-center py-6 pl-5">
+              <MdSpaceDashboard size={20} />
+              <div className="ml-5 font-semibold text-zinc-600 text-base">Dashboard</div>
+            </div>
+            <div className="flex items-center py-4 pl-5 selected">
+              <RiAwardFill size={20} />
+              <div className="ml-5 font-semibold text-base">Skill Test</div>
+            </div>
+            <div className="flex items-center py-6 pl-5">
+              <GrCopy size={20} />
+              <div className="ml-5 font-semibold text-zinc-600 text-base">Internship</div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="content">
+          <div className="centerdiv">
+            <div className="mt-8">Skill Test</div>
+            <div className="mt-6">
+              <div className="testname">
+                <div>
+                  <Image src="/html-5.png" width={50} height={50} alt="html" />
+                </div>
+                <div>
+                  <div className="font-bold">Hyper Text Markup Language</div>
+                  <div className="text-sm text-gray-500">Question: 08 | Duration: 15 minutes | Submitted on 5 June 2024</div>
+                </div>
+                <div className="flex items-center">
+                  <button className="upload" onClick={() => setShowPopup(true)}>Update</button>
+                </div>
+              </div>
+              {/* quick stats */}
+              <div className="mt-4 p-5 quick">
+                <div className="font-bold">Quick Statistics</div>
+                <div className="flex justify-around mt-4">
+                  <div className="flex bord">
+                    <div className="bg">
+                      <div className="icon">
+                        <Image src="/trophy.png" layout="fill" objectFit="contain" alt="rank" />
+                      </div>
+                    </div>
+                    <div className="ml-3">
+                      <div className="font-bold text-xl">{stats.rank}</div>
+                      <div className="text-xs text-gray-600">YOUR RANK</div>
+                    </div>
+                  </div>
+                  <div className="flex bord">
+                    <div className="bg">
+                      <div className="icon">
+                        <Image src="/papers.png" layout="fill" objectFit="contain" alt="rank" />
+                      </div>
+                    </div>
+                    <div className="ml-3">
+                      <div className="font-bold text-xl">{stats.percentile}%</div>
+                      <div className="text-xs text-gray-600">PERCENTILE</div>
+                    </div>
+                  </div>
+                  <div className="flex">
+                    <div className="bg">
+                      <div className="icon">
+                        <Image src="/check.png" layout="fill" objectFit="contain" alt="rank" />
+                      </div>
+                    </div>
+                    <div className="ml-3">
+                      <div className="font-bold text-xl">{stats.score}</div>
+                      <div className="text-xs text-gray-600">CORRECT ANSWERS</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* comparison graph */}
+              <div className="mt-4 p-5 comparison">
+                <div className="font-bold">Comparison Graph</div>
+                <div className="flex pr-5 mt-5">
+                  <div className="para">
+                    You scored 90% which is lower than the average percentile 72% of all the engineers who took the assessment.
+                  </div>
+                  <div className="graphlogo">
+                    <Image src="/statistics.png" layout="fill" objectFit="contain" alt="rank" />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <MyChart />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-20 rightdiv">
+            <div className="syllabus">
+              <div className="font-bold">Syllabus Wise Analysis</div>
+              <div className="mt-8">
+                <div className="text-sm text-gray-600 font-medium">HTML Tools, Forms, History</div>
+                <div className="flex items-center mt-4">
+                  <div className="fullbar"><div className="bar"></div></div>
+                  <div className="ml-10">80%</div>
+                </div>
+              </div>
+              <div className="mt-8">
+                <div className="text-sm text-gray-600 font-medium">Tags & References in HTML</div>
+                <div className="flex items-center mt-4">
+                  <div className="fullbar sfullbar"><div className="bar sbar"></div></div>
+                  <div className="ml-10">60%</div>
+                </div>
+              </div>
+              <div className="mt-8">
+                <div className="text-sm text-gray-600 font-medium">Tables & References in HTML</div>
+                <div className="flex items-center mt-4">
+                  <div className="fullbar tfullbar"><div className="bar tbar"></div></div>
+                  <div className="ml-10">24%</div>
+                </div>
+              </div>
+              <div className="mt-8">
+                <div className="text-sm text-gray-600 font-medium">Tables & CSS Basics</div>
+                <div className="flex items-center mt-4">
+                  <div className="fullbar ffullbar"><div className="bar fbar"></div></div>
+                  <div className="ml-10">96%</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pie chart */}
+            <div className="mt-5 p-5 question">
+              <div className="flex justify-between">
+                <div className="font-bold">Question Analysis</div>
+                <div>{stats.score}</div>
+              </div>
+              <div>
+                <div className="mt-2">
+                  <span className="font-bold">You scored 12 questions correct out of 15.</span>
+                  <span> However, it still needs some improvement.</span>
+                </div>
+                <div className="flex justify-center mt-10">
+                  <MyPieChart score={stats.score} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <UpdatePopup show={showPopup} onClose={() => setShowPopup(false)} onUpdate={handleUpdate} />
     </div>
   );
 }
+
+export default Home;

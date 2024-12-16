@@ -1,0 +1,214 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    border-bottom: 1px solid #dedede;
+}
+.userbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: fit-content;
+    border-radius: 10px;
+    border: 1px solid #dedede;
+
+}
+
+.bodywrap{
+    display: flex;
+
+}
+
+.sidebar{
+    border-right: 1px solid #dedede;
+    width: 15%;
+    height: 100dvh;
+}
+
+.selected{
+    background-color:rgb(242, 242, 242);
+    width: 95%;
+    border-radius: 0 30px 30px 0;
+    color:rgb(44, 101, 224);
+}
+
+.centerdiv{
+    width: 48%;
+    height: 100dvh;
+    margin-left: 40px;
+}
+
+.testname{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border: 1px solid #dedede;
+    padding: 20px 0;
+}
+.upload{
+    padding: 10px 25px;
+    background-color: #132179;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.rightdiv{
+    width: 45%;
+
+}
+.syllabus{
+    border: 1px solid #dedede;
+    padding: 20px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    width: 85%
+}
+
+.quick{
+    width: 100%;
+    border: 1px solid #dedede;
+}
+
+.icon{
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+.bg{
+    padding: 15px;
+    background-color:rgb(233, 233, 233);
+    border-radius: 50%;
+}
+
+.bord{
+    border-right: 1px solid #dedede;
+    padding-right: 20px;
+}
+.fullbar{
+    width: 400px;
+    height: 10px;
+    background-color:rgba(32, 69, 203, 0.15);
+    border-radius: 40px;
+}
+.sfullbar{
+    background-color:#fef1eb;
+}
+
+.tfullbar{
+    background-color: #feecec;
+}
+
+.ffullbar{
+    background-color: #e7faec;
+}
+
+.bar{
+    width: 80%;
+    height: 100%;
+    background-color:#387ef2;
+    border-radius: 40px;
+}
+
+.sbar{
+    width: 60%;
+    background-color: #ff8339;
+}
+
+.tbar{
+    width: 24%;
+    background-color: #f95353;
+}
+
+.fbar{
+    width: 96%;
+    background-color: #2bbf65;
+}
+.comparsion{
+    border: 1px solid #dedede;
+}
+
+.para{
+    padding-right: 100px;
+}
+
+.graphlogo{
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+.question{
+    border: 1px solid #dedede;
+}
+
+/* src/components/Style.css */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    width: 500px;
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 20px;
+  }
+  
+  .popup-content div {
+    margin-bottom: 10px;
+  }
+  
+  .popup-content label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .popup-content input {
+    width: 40%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(0, 60, 150);
+  }
+  
+  .popup-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .comparison{
+    border: 1px solid #dedede;
+  }
+
+  .popupbtn{
+    border: 1px solid rgb(0, 60, 150);
+    padding: 10px 20px;
+    color: rgb(0, 60, 150);
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .save{
+    background-color: rgb(0, 60, 150);
+    color: #fff;
+  }
+
